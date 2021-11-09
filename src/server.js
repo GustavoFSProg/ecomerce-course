@@ -1,7 +1,6 @@
 import express from 'express'
 import path from 'path'
 import mongoose from 'mongoose'
-import bodyParser from 'body-parser'
 import dotenv from 'dotenv'
 import cors from 'cors'
 import config from './config'
@@ -27,7 +26,6 @@ mongoose
   .catch((error) => console.log(error.reason))
 
 const app = express()
-app.use(bodyParser.json())
 app.use('/api/uploads', uploadRoute)
 app.use('/api/users', userRoute)
 app.use('/api/products', productRoute)
