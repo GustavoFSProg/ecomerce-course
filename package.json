@@ -2,11 +2,10 @@
   "name": "amazona",
   "version": "1.0.0",
   "description": "Demo : https://amazonaapp.herokuapp.com/",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "aws-sdk": "^2.702.0",
     "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "eslint-plugin-react": "^7.19.0",
     "express": "^4.17.1",
@@ -28,8 +27,9 @@
     "nodemon": "^2.0.2"
   },
   "scripts": {
-    "start": "nodemon --watch backend --exec babel-node server.js",
-    "build": "rm -rf dist && babel backend -d dist  && cd frontend && npm install && npm run build",
+    "dev": "nodemon --watch backend --exec babel-node src/server.js",
+    "start": "NODE_ENV=production node dist/server.js",
+    "build": "babel src -d dist",
     "heroku-postbuild-x": "npm run build && cd frontend && npm install && npm run build"
   },
   "repository": {
